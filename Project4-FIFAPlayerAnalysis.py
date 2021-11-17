@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -18,128 +12,48 @@ warnings.filterwarnings('ignore')
 #import plotly
 sns.set_style('darkgrid')
 
-
-# In[2]:
-
-
-df=pd.read_csv('/Users/cesarvenzor/Documents/Projects/JupNotebook/data.csv')
-
-
-# In[3]:
-
+df=pd.read_csv('/Users/cesarvenzor/Documents/Projects/JupNotebook/Other/data.csv')
 
 df.head()
-
-
-# In[4]:
-
 
 df.head().T
 
-
-# In[5]:
-
-
 df.columns
-
-
-# In[6]:
-
 
 df.info()
 
-
-# In[7]:
-
-
 df.describe()
-
-
-# In[8]:
-
 
 df.set_index('Name')
 
-
-# In[253]:
-
-
 #df.drop(['Unnamed: 0','Photo','Flag','Club Logo'],axis=1,inplace=True)
-
-
-# In[9]:
-
 
 df.head()
 
-
-# In[255]:
-
-
 df.columns
 
-
-# In[276]:
-
-
 df.isnull().sum()
-
-
-# In[257]:
-
 
 missing_height = df[df['Height'].isnull()].index.tolist()
 missing_weight = df[df['Weight'].isnull()].index.tolist()
 
-
-# In[260]:
-
-
 missing_height
-
-
-# In[261]:
-
 
 df[df['Height'].isnull()]
 
-
-# In[263]:
-
-
 df['Height']
-
-
-# In[243]:
-
 
 df.drop(df.index[missing_height],inplace =True)
 
-
-# In[244]:
-
-
 df.isnull().sum()
-
-
-# In[153]:
-
 
 print('Total number of countries : {0}'.format(df['Nationality'].nunique()))
 print(df['Nationality'].value_counts().head(5))
 print('--'*40)
 print("\nEuropean Countries have most players")
 
-
-# In[154]:
-
-
 print('Total number of clubs : {0}'.format(df['Club'].nunique()))
 print(df['Club'].value_counts())
-
-
-# In[155]:
-
 
 a = df['Club'].value_counts().tolist()
 
@@ -152,13 +66,7 @@ for n in a:
     t+= n
 
 
-# In[157]:
-
-
 t
-
-
-# In[221]:
 
 
 t/651
@@ -166,22 +74,12 @@ t/651
 a.mean()
 
 
-# In[159]:
-
-
 print('Maximum Potential : '+str(df.loc[df['Potential'].idxmax()][1]))
 print('Maximum Overall Perforamnce : '+str(df.loc[df['Overall'].idxmax()][1]))
 
 
-# In[160]:
-
-
 #dfl = df.columns.tolist()
 #dfl
-
-
-# In[161]:
-
 
 pr_cols=['Crossing', 'Finishing', 'HeadingAccuracy', 'ShortPassing', 'Volleys',
        'Dribbling', 'Curve', 'FKAccuracy', 'LongPassing', 'BallControl',
@@ -198,14 +96,8 @@ while i < len(pr_cols):
     i += 1
 
 
-# In[162]:
-
-
 for i in pr_cols:
     print('Best {0} : {1}'.format(pr_cols[pr_cols.index(i)],df.loc[df[pr_cols[pr_cols.index(i)]].idxmax()][1]))
-
-
-# In[191]:
 
 
 def value_to_int(df_value):
@@ -222,20 +114,12 @@ def value_to_int(df_value):
     return value
 
 
-# In[197]:
-
-
 #df['Value'] = df['Value'].apply(value_to_int)
 #df['Release Clause']= df['Release Clause'].apply(value_to_int)
 
 
-# In[183]:
-
 
 df['Value']
-
-
-# In[185]:
 
 
 
@@ -285,12 +169,12 @@ df.columns
 
 
 player_features = (
-    'Acceleration', 'Aggression', 'Agility', 
-    'Balance', 'BallControl', 'Composure', 
-    'Crossing', 'Dribbling', 'FKAccuracy', 
-    'Finishing', 'GKDiving', 'GKHandling', 
-    'GKKicking', 'GKPositioning', 'GKReflexes', 
-    'HeadingAccuracy', 'Interceptions', 'Jumping', 
+    'Acceleration', 'Aggression', 'Agility',
+    'Balance', 'BallControl', 'Composure',
+    'Crossing', 'Dribbling', 'FKAccuracy',
+    'Finishing', 'GKDiving', 'GKHandling',
+    'GKKicking', 'GKPositioning', 'GKReflexes',
+    'HeadingAccuracy', 'Interceptions', 'Jumping',
     'LongPassing', 'LongShots', 'Marking', 'Penalties'
 )
 
@@ -299,7 +183,7 @@ idx = 1
 plt.figure(figsize=(15,45))
 for position_name, features in df.groupby(df['Position'])[player_features].mean().iterrows():
     top_features = dict(features.nlargest(5))
-    
+
     # number of variable
     categories=top_features.keys()
     N = len(categories)
@@ -322,17 +206,17 @@ for position_name, features in df.groupby(df['Position'])[player_features].mean(
     ax.set_rlabel_position(0)
     plt.yticks([25,50,75], ["25","50","75"], color="grey", size=7)
     plt.ylim(0,100)
-    
+
     plt.subplots_adjust(hspace = 0.5)
-    
+
     # Plot data
     ax.plot(angles, values, linewidth=1, linestyle='solid')
 
     # Fill area
     ax.fill(angles, values, 'b', alpha=0.1)
-    
+
     plt.title(position_name, size=11, y=1.1)
-    
+
     idx += 1
 
 
@@ -367,7 +251,7 @@ sns.jointplot(x=df['Age'],y=df['Potential'],
 # In[236]:
 
 
-sns.lmplot(data = df, x = 'Age', y = 'SprintSpeed',lowess=True,scatter_kws={'alpha':0.01, 's':5,'color':'green'}, 
+sns.lmplot(data = df, x = 'Age', y = 'SprintSpeed',lowess=True,scatter_kws={'alpha':0.01, 's':5,'color':'green'},
            line_kws={'color':'red'})
 
 
@@ -409,7 +293,3 @@ sns.jointplot(x=df['Composure'], y=df['Penalties'], kind="hex", color="#4CB391")
 
 
 # In[ ]:
-
-
-
-
