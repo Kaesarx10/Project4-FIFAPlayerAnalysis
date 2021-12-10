@@ -14096,33 +14096,7 @@ div.jp-OutputPrompt {
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
 <div class="reveal">
-<div class="slides"><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1">#import eli5</span>
-<span class="c1">#from eli5.sklearn import PermutationImportance</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
-<span class="c1">#import missingno as msno</span>
-
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="c1">#import plotly</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></section></section><section><section>
+<div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
@@ -14133,10 +14107,11 @@ div.jp-OutputPrompt {
 </div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/cesarvenzor/Documents/Projects/jupyter_nb/Other/data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/cesarvenzor/Documents/Projects/jupyter_nb/Other/data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Photo&#39;</span><span class="p">,</span> <span class="s1">&#39;Flag&#39;</span><span class="p">,</span> <span class="s1">&#39;Club Logo&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14147,10 +14122,10 @@ div.jp-OutputPrompt {
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14166,7 +14141,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
 
 
@@ -14192,13 +14167,13 @@ div.jp-OutputPrompt {
       <th>ID</th>
       <th>Name</th>
       <th>Age</th>
-      <th>Photo</th>
       <th>Nationality</th>
-      <th>Flag</th>
       <th>Overall</th>
       <th>Potential</th>
       <th>Club</th>
-      <th>Club Logo</th>
+      <th>Value</th>
+      <th>Wage</th>
+      <th>Special</th>
       <th>...</th>
       <th>Composure</th>
       <th>Marking</th>
@@ -14218,13 +14193,13 @@ div.jp-OutputPrompt {
       <td>158023</td>
       <td>L. Messi</td>
       <td>31</td>
-      <td>https://cdn.sofifa.org/players/4/19/158023.png</td>
       <td>Argentina</td>
-      <td>https://cdn.sofifa.org/flags/52.png</td>
       <td>94</td>
       <td>94</td>
       <td>FC Barcelona</td>
-      <td>https://cdn.sofifa.org/teams/2/light/241.png</td>
+      <td>€110.5M</td>
+      <td>€565K</td>
+      <td>2202</td>
       <td>...</td>
       <td>96.0</td>
       <td>33.0</td>
@@ -14242,13 +14217,13 @@ div.jp-OutputPrompt {
       <td>20801</td>
       <td>Cristiano Ronaldo</td>
       <td>33</td>
-      <td>https://cdn.sofifa.org/players/4/19/20801.png</td>
       <td>Portugal</td>
-      <td>https://cdn.sofifa.org/flags/38.png</td>
       <td>94</td>
       <td>94</td>
       <td>Juventus</td>
-      <td>https://cdn.sofifa.org/teams/2/light/45.png</td>
+      <td>€77M</td>
+      <td>€405K</td>
+      <td>2228</td>
       <td>...</td>
       <td>95.0</td>
       <td>28.0</td>
@@ -14266,13 +14241,13 @@ div.jp-OutputPrompt {
       <td>190871</td>
       <td>Neymar Jr</td>
       <td>26</td>
-      <td>https://cdn.sofifa.org/players/4/19/190871.png</td>
       <td>Brazil</td>
-      <td>https://cdn.sofifa.org/flags/54.png</td>
       <td>92</td>
       <td>93</td>
       <td>Paris Saint-Germain</td>
-      <td>https://cdn.sofifa.org/teams/2/light/73.png</td>
+      <td>€118.5M</td>
+      <td>€290K</td>
+      <td>2143</td>
       <td>...</td>
       <td>94.0</td>
       <td>27.0</td>
@@ -14290,13 +14265,13 @@ div.jp-OutputPrompt {
       <td>193080</td>
       <td>De Gea</td>
       <td>27</td>
-      <td>https://cdn.sofifa.org/players/4/19/193080.png</td>
       <td>Spain</td>
-      <td>https://cdn.sofifa.org/flags/45.png</td>
       <td>91</td>
       <td>93</td>
       <td>Manchester United</td>
-      <td>https://cdn.sofifa.org/teams/2/light/11.png</td>
+      <td>€72M</td>
+      <td>€260K</td>
+      <td>1471</td>
       <td>...</td>
       <td>68.0</td>
       <td>15.0</td>
@@ -14314,13 +14289,13 @@ div.jp-OutputPrompt {
       <td>192985</td>
       <td>K. De Bruyne</td>
       <td>27</td>
-      <td>https://cdn.sofifa.org/players/4/19/192985.png</td>
       <td>Belgium</td>
-      <td>https://cdn.sofifa.org/flags/7.png</td>
       <td>91</td>
       <td>92</td>
       <td>Manchester City</td>
-      <td>https://cdn.sofifa.org/teams/2/light/10.png</td>
+      <td>€102M</td>
+      <td>€355K</td>
+      <td>2281</td>
       <td>...</td>
       <td>88.0</td>
       <td>68.0</td>
@@ -14333,129 +14308,9 @@ div.jp-OutputPrompt {
       <td>13.0</td>
       <td>€196.4M</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>183277</td>
-      <td>E. Hazard</td>
-      <td>27</td>
-      <td>https://cdn.sofifa.org/players/4/19/183277.png</td>
-      <td>Belgium</td>
-      <td>https://cdn.sofifa.org/flags/7.png</td>
-      <td>91</td>
-      <td>91</td>
-      <td>Chelsea</td>
-      <td>https://cdn.sofifa.org/teams/2/light/5.png</td>
-      <td>...</td>
-      <td>91.0</td>
-      <td>34.0</td>
-      <td>27.0</td>
-      <td>22.0</td>
-      <td>11.0</td>
-      <td>12.0</td>
-      <td>6.0</td>
-      <td>8.0</td>
-      <td>8.0</td>
-      <td>€172.1M</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>177003</td>
-      <td>L. Modrić</td>
-      <td>32</td>
-      <td>https://cdn.sofifa.org/players/4/19/177003.png</td>
-      <td>Croatia</td>
-      <td>https://cdn.sofifa.org/flags/10.png</td>
-      <td>91</td>
-      <td>91</td>
-      <td>Real Madrid</td>
-      <td>https://cdn.sofifa.org/teams/2/light/243.png</td>
-      <td>...</td>
-      <td>84.0</td>
-      <td>60.0</td>
-      <td>76.0</td>
-      <td>73.0</td>
-      <td>13.0</td>
-      <td>9.0</td>
-      <td>7.0</td>
-      <td>14.0</td>
-      <td>9.0</td>
-      <td>€137.4M</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>176580</td>
-      <td>L. Suárez</td>
-      <td>31</td>
-      <td>https://cdn.sofifa.org/players/4/19/176580.png</td>
-      <td>Uruguay</td>
-      <td>https://cdn.sofifa.org/flags/60.png</td>
-      <td>91</td>
-      <td>91</td>
-      <td>FC Barcelona</td>
-      <td>https://cdn.sofifa.org/teams/2/light/241.png</td>
-      <td>...</td>
-      <td>85.0</td>
-      <td>62.0</td>
-      <td>45.0</td>
-      <td>38.0</td>
-      <td>27.0</td>
-      <td>25.0</td>
-      <td>31.0</td>
-      <td>33.0</td>
-      <td>37.0</td>
-      <td>€164M</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>155862</td>
-      <td>Sergio Ramos</td>
-      <td>32</td>
-      <td>https://cdn.sofifa.org/players/4/19/155862.png</td>
-      <td>Spain</td>
-      <td>https://cdn.sofifa.org/flags/45.png</td>
-      <td>91</td>
-      <td>91</td>
-      <td>Real Madrid</td>
-      <td>https://cdn.sofifa.org/teams/2/light/243.png</td>
-      <td>...</td>
-      <td>82.0</td>
-      <td>87.0</td>
-      <td>92.0</td>
-      <td>91.0</td>
-      <td>11.0</td>
-      <td>8.0</td>
-      <td>9.0</td>
-      <td>7.0</td>
-      <td>11.0</td>
-      <td>€104.6M</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>200389</td>
-      <td>J. Oblak</td>
-      <td>25</td>
-      <td>https://cdn.sofifa.org/players/4/19/200389.png</td>
-      <td>Slovenia</td>
-      <td>https://cdn.sofifa.org/flags/44.png</td>
-      <td>90</td>
-      <td>93</td>
-      <td>Atlético Madrid</td>
-      <td>https://cdn.sofifa.org/teams/2/light/240.png</td>
-      <td>...</td>
-      <td>70.0</td>
-      <td>27.0</td>
-      <td>12.0</td>
-      <td>18.0</td>
-      <td>86.0</td>
-      <td>92.0</td>
-      <td>78.0</td>
-      <td>88.0</td>
-      <td>89.0</td>
-      <td>€144.5M</td>
-    </tr>
   </tbody>
 </table>
-<p>10 rows × 88 columns</p>
+<p>5 rows × 85 columns</p>
 </div>
 </div>
 
@@ -14468,7 +14323,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -14487,7 +14342,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
 
 
@@ -14738,10 +14593,10 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -14760,7 +14615,7 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
@@ -14769,15 +14624,15 @@ div.jp-OutputPrompt {
 <pre>ID                   0
 Name                 0
 Age                  0
-Photo                0
 Nationality          0
+Overall              0
                   ... 
 GKHandling          48
 GKKicking           48
 GKPositioning       48
 GKReflexes          48
 Release Clause    1564
-Length: 88, dtype: int64</pre>
+Length: 85, dtype: int64</pre>
 </div>
 
 </div>
@@ -14786,10 +14641,10 @@ Length: 88, dtype: int64</pre>
 
 </div>
 
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -14814,99 +14669,96 @@ Length: 88, dtype: int64</pre>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 Int64Index: 18207 entries, 0 to 18206
-Data columns (total 88 columns):
+Data columns (total 85 columns):
  #   Column                    Non-Null Count  Dtype  
 ---  ------                    --------------  -----  
  0   ID                        18207 non-null  int64  
  1   Name                      18207 non-null  object 
  2   Age                       18207 non-null  int64  
- 3   Photo                     18207 non-null  object 
- 4   Nationality               18207 non-null  object 
- 5   Flag                      18207 non-null  object 
- 6   Overall                   18207 non-null  int64  
- 7   Potential                 18207 non-null  int64  
- 8   Club                      17966 non-null  object 
- 9   Club Logo                 18207 non-null  object 
- 10  Value                     18207 non-null  object 
- 11  Wage                      18207 non-null  object 
- 12  Special                   18207 non-null  int64  
- 13  Preferred Foot            18159 non-null  object 
- 14  International Reputation  18159 non-null  float64
- 15  Weak Foot                 18159 non-null  float64
- 16  Skill Moves               18159 non-null  float64
- 17  Work Rate                 18159 non-null  object 
- 18  Body Type                 18159 non-null  object 
- 19  Real Face                 18159 non-null  object 
- 20  Position                  18147 non-null  object 
- 21  Jersey Number             18147 non-null  float64
- 22  Joined                    16654 non-null  object 
- 23  Loaned From               1264 non-null   object 
- 24  Contract Valid Until      17918 non-null  object 
- 25  Height                    18159 non-null  object 
- 26  Weight                    18159 non-null  object 
- 27  LS                        16122 non-null  object 
- 28  ST                        16122 non-null  object 
- 29  RS                        16122 non-null  object 
- 30  LW                        16122 non-null  object 
- 31  LF                        16122 non-null  object 
- 32  CF                        16122 non-null  object 
- 33  RF                        16122 non-null  object 
- 34  RW                        16122 non-null  object 
- 35  LAM                       16122 non-null  object 
- 36  CAM                       16122 non-null  object 
- 37  RAM                       16122 non-null  object 
- 38  LM                        16122 non-null  object 
- 39  LCM                       16122 non-null  object 
- 40  CM                        16122 non-null  object 
- 41  RCM                       16122 non-null  object 
- 42  RM                        16122 non-null  object 
- 43  LWB                       16122 non-null  object 
- 44  LDM                       16122 non-null  object 
- 45  CDM                       16122 non-null  object 
- 46  RDM                       16122 non-null  object 
- 47  RWB                       16122 non-null  object 
- 48  LB                        16122 non-null  object 
- 49  LCB                       16122 non-null  object 
- 50  CB                        16122 non-null  object 
- 51  RCB                       16122 non-null  object 
- 52  RB                        16122 non-null  object 
- 53  Crossing                  18159 non-null  float64
- 54  Finishing                 18159 non-null  float64
- 55  HeadingAccuracy           18159 non-null  float64
- 56  ShortPassing              18159 non-null  float64
- 57  Volleys                   18159 non-null  float64
- 58  Dribbling                 18159 non-null  float64
- 59  Curve                     18159 non-null  float64
- 60  FKAccuracy                18159 non-null  float64
- 61  LongPassing               18159 non-null  float64
- 62  BallControl               18159 non-null  float64
- 63  Acceleration              18159 non-null  float64
- 64  SprintSpeed               18159 non-null  float64
- 65  Agility                   18159 non-null  float64
- 66  Reactions                 18159 non-null  float64
- 67  Balance                   18159 non-null  float64
- 68  ShotPower                 18159 non-null  float64
- 69  Jumping                   18159 non-null  float64
- 70  Stamina                   18159 non-null  float64
- 71  Strength                  18159 non-null  float64
- 72  LongShots                 18159 non-null  float64
- 73  Aggression                18159 non-null  float64
- 74  Interceptions             18159 non-null  float64
- 75  Positioning               18159 non-null  float64
- 76  Vision                    18159 non-null  float64
- 77  Penalties                 18159 non-null  float64
- 78  Composure                 18159 non-null  float64
- 79  Marking                   18159 non-null  float64
- 80  StandingTackle            18159 non-null  float64
- 81  SlidingTackle             18159 non-null  float64
- 82  GKDiving                  18159 non-null  float64
- 83  GKHandling                18159 non-null  float64
- 84  GKKicking                 18159 non-null  float64
- 85  GKPositioning             18159 non-null  float64
- 86  GKReflexes                18159 non-null  float64
- 87  Release Clause            16643 non-null  object 
-dtypes: float64(38), int64(5), object(45)
-memory usage: 12.4+ MB
+ 3   Nationality               18207 non-null  object 
+ 4   Overall                   18207 non-null  int64  
+ 5   Potential                 18207 non-null  int64  
+ 6   Club                      17966 non-null  object 
+ 7   Value                     18207 non-null  object 
+ 8   Wage                      18207 non-null  object 
+ 9   Special                   18207 non-null  int64  
+ 10  Preferred Foot            18159 non-null  object 
+ 11  International Reputation  18159 non-null  float64
+ 12  Weak Foot                 18159 non-null  float64
+ 13  Skill Moves               18159 non-null  float64
+ 14  Work Rate                 18159 non-null  object 
+ 15  Body Type                 18159 non-null  object 
+ 16  Real Face                 18159 non-null  object 
+ 17  Position                  18147 non-null  object 
+ 18  Jersey Number             18147 non-null  float64
+ 19  Joined                    16654 non-null  object 
+ 20  Loaned From               1264 non-null   object 
+ 21  Contract Valid Until      17918 non-null  object 
+ 22  Height                    18159 non-null  object 
+ 23  Weight                    18159 non-null  object 
+ 24  LS                        16122 non-null  object 
+ 25  ST                        16122 non-null  object 
+ 26  RS                        16122 non-null  object 
+ 27  LW                        16122 non-null  object 
+ 28  LF                        16122 non-null  object 
+ 29  CF                        16122 non-null  object 
+ 30  RF                        16122 non-null  object 
+ 31  RW                        16122 non-null  object 
+ 32  LAM                       16122 non-null  object 
+ 33  CAM                       16122 non-null  object 
+ 34  RAM                       16122 non-null  object 
+ 35  LM                        16122 non-null  object 
+ 36  LCM                       16122 non-null  object 
+ 37  CM                        16122 non-null  object 
+ 38  RCM                       16122 non-null  object 
+ 39  RM                        16122 non-null  object 
+ 40  LWB                       16122 non-null  object 
+ 41  LDM                       16122 non-null  object 
+ 42  CDM                       16122 non-null  object 
+ 43  RDM                       16122 non-null  object 
+ 44  RWB                       16122 non-null  object 
+ 45  LB                        16122 non-null  object 
+ 46  LCB                       16122 non-null  object 
+ 47  CB                        16122 non-null  object 
+ 48  RCB                       16122 non-null  object 
+ 49  RB                        16122 non-null  object 
+ 50  Crossing                  18159 non-null  float64
+ 51  Finishing                 18159 non-null  float64
+ 52  HeadingAccuracy           18159 non-null  float64
+ 53  ShortPassing              18159 non-null  float64
+ 54  Volleys                   18159 non-null  float64
+ 55  Dribbling                 18159 non-null  float64
+ 56  Curve                     18159 non-null  float64
+ 57  FKAccuracy                18159 non-null  float64
+ 58  LongPassing               18159 non-null  float64
+ 59  BallControl               18159 non-null  float64
+ 60  Acceleration              18159 non-null  float64
+ 61  SprintSpeed               18159 non-null  float64
+ 62  Agility                   18159 non-null  float64
+ 63  Reactions                 18159 non-null  float64
+ 64  Balance                   18159 non-null  float64
+ 65  ShotPower                 18159 non-null  float64
+ 66  Jumping                   18159 non-null  float64
+ 67  Stamina                   18159 non-null  float64
+ 68  Strength                  18159 non-null  float64
+ 69  LongShots                 18159 non-null  float64
+ 70  Aggression                18159 non-null  float64
+ 71  Interceptions             18159 non-null  float64
+ 72  Positioning               18159 non-null  float64
+ 73  Vision                    18159 non-null  float64
+ 74  Penalties                 18159 non-null  float64
+ 75  Composure                 18159 non-null  float64
+ 76  Marking                   18159 non-null  float64
+ 77  StandingTackle            18159 non-null  float64
+ 78  SlidingTackle             18159 non-null  float64
+ 79  GKDiving                  18159 non-null  float64
+ 80  GKHandling                18159 non-null  float64
+ 81  GKKicking                 18159 non-null  float64
+ 82  GKPositioning             18159 non-null  float64
+ 83  GKReflexes                18159 non-null  float64
+ 84  Release Clause            16643 non-null  object 
+dtypes: float64(38), int64(5), object(42)
+memory usage: 11.9+ MB
 </pre>
 </div>
 </div>
@@ -14915,18 +14767,16 @@ memory usage: 12.4+ MB
 
 </div>
 
-</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol>
-<li>Clean Data</li>
-</ol>
+<p>Cleaning Data</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Loaned From&#39;</span><span class="p">,</span><span class="s1">&#39;Release Clause&#39;</span><span class="p">,</span><span class="s1">&#39;Joined&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -14940,7 +14790,7 @@ memory usage: 12.4+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">missing_height</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -14980,7 +14830,7 @@ memory usage: 12.4+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">missing_height</span><span class="p">],</span><span class="n">inplace</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -14994,7 +14844,7 @@ memory usage: 12.4+ MB
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -15013,7 +14863,7 @@ memory usage: 12.4+ MB
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
 
 
@@ -15022,15 +14872,15 @@ memory usage: 12.4+ MB
 <pre>ID               0
 Name             0
 Age              0
-Photo            0
 Nationality      0
+Overall          0
                 ..
 GKDiving         0
 GKHandling       0
 GKKicking        0
 GKPositioning    0
 GKReflexes       0
-Length: 85, dtype: int64</pre>
+Length: 82, dtype: int64</pre>
 </div>
 
 </div>
@@ -15053,13 +14903,15 @@ Length: 85, dtype: int64</pre>
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Data Analysis</p>
+<ol>
+<li>Data Analysis</li>
+</ol>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
@@ -15106,7 +14958,7 @@ European Countries have most players
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
@@ -15154,7 +15006,7 @@ Name: Club, Length: 651, dtype: int64
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
@@ -15206,7 +15058,7 @@ Maximum Overall Perforamnce : L. Messi
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
@@ -15639,7 +15491,7 @@ Name: Wage, Length: 18159, dtype: float64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
@@ -15681,7 +15533,7 @@ Top Earners
 
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ol>
@@ -15689,10 +15541,10 @@ Top Earners
 </ol>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">player_features</span> <span class="o">=</span> <span class="p">(</span>
@@ -15707,7 +15559,20 @@ Top Earners
 
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
 <span class="n">idx</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">45</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">45</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">position_name</span><span class="p">,</span> <span class="n">features</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Position&#39;</span><span class="p">])[</span><span class="n">player_features</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">top_features</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
     
@@ -16530,7 +16395,7 @@ Top Earners
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
@@ -16585,7 +16450,7 @@ Top Earners
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
@@ -16640,7 +16505,7 @@ Top Earners
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
@@ -16695,7 +16560,7 @@ Top Earners
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
@@ -16749,7 +16614,7 @@ Top Earners
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
@@ -16803,7 +16668,7 @@ Top Earners
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
@@ -17213,7 +17078,7 @@ require(
             controls: true,
             progress: true,
             history: true,
-            transition: "slide",
+            transition: "none",
             plugins: [RevealNotes]
         });
 
@@ -17226,7 +17091,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
